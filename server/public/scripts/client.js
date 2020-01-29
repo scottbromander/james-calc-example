@@ -7,8 +7,18 @@ $(document).ready(function() {
 function addValues(event) {
   event.preventDefault();
 
-  const numOne = $("#js-input-one").val();
-  const numTwo = $("#js-input-two").val();
+  const numOne = parseInt($("#js-input-one").val());
+  const numTwo = parseInt($("#js-input-two").val());
+  const answer = numOne + numTwo;
+  $("#js-input-one").val("");
+  $("#js-input-two").val("");
 
-  console.log(numOne, numTwo);
+  render(answer);
+}
+
+function render(answer) {
+  $(".container").empty();
+  $(".container").append(`
+        <h1>${answer}</h1>
+    `);
 }
